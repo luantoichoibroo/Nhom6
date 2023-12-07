@@ -12,7 +12,7 @@ namespace DashBoard
     {
         private string m_id, m_soPhong, m_toaNha;
         private double m_dienTich, m_soNguoiO;
-        private string m_chuHo;
+        private string m_chuHo, m_idChuHo;
         private TrangThaiPhong m_trangThai;
 
         public string ID
@@ -57,6 +57,12 @@ namespace DashBoard
             set { m_chuHo = value; }
         }
 
+        public string IdChuHo
+        {
+            get { return m_idChuHo; }
+            set { m_idChuHo = value; }
+        }
+
         public CCanHo()
         {
             this.m_id = "";
@@ -66,6 +72,7 @@ namespace DashBoard
             this.m_trangThai = TrangThaiPhong.DangTrong;
             this.m_dienTich = 0;
             this.m_chuHo = null;
+            this.m_idChuHo = null;
         }
     }
 }

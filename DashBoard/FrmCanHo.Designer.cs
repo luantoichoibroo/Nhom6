@@ -40,7 +40,10 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.dgvCanHo = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnSua = new Guna.UI2.WinForms.Guna2Button();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IdChuHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChuHo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,8 +51,6 @@
             this.DienTich = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoNguoiO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnSua = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCanHo)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -174,6 +175,7 @@
             this.dgvCanHo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvCanHo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Check,
+            this.IdChuHo,
             this.ID,
             this.ChuHo,
             this.SoPhong,
@@ -228,6 +230,37 @@
             this.dgvCanHo.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvCanHo.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(1076, 70);
+            this.guna2Panel2.TabIndex = 36;
+            // 
+            // btnSua
+            // 
+            this.btnSua.AutoRoundedCorners = true;
+            this.btnSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(110)))), ((int)(((byte)(210)))));
+            this.btnSua.BorderRadius = 21;
+            this.btnSua.BorderThickness = 2;
+            this.btnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSua.FillColor = System.Drawing.Color.Transparent;
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(110)))), ((int)(((byte)(210)))));
+            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSua.Location = new System.Drawing.Point(914, 713);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(120, 45);
+            this.btnSua.TabIndex = 37;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
             // Check
             // 
             this.Check.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -235,6 +268,15 @@
             this.Check.MinimumWidth = 6;
             this.Check.Name = "Check";
             this.Check.Width = 6;
+            // 
+            // IdChuHo
+            // 
+            this.IdChuHo.DataPropertyName = "IdChuHo";
+            this.IdChuHo.HeaderText = "ID Chủ Hộ";
+            this.IdChuHo.MinimumWidth = 6;
+            this.IdChuHo.Name = "IdChuHo";
+            this.IdChuHo.ReadOnly = true;
+            this.IdChuHo.Visible = false;
             // 
             // ID
             // 
@@ -269,7 +311,7 @@
             // DienTich
             // 
             this.DienTich.DataPropertyName = "DienTich";
-            this.DienTich.HeaderText = "Diện tích";
+            this.DienTich.HeaderText = "Diện tích(m2)";
             this.DienTich.MinimumWidth = 6;
             this.DienTich.Name = "DienTich";
             // 
@@ -287,37 +329,6 @@
             this.TrangThai.HeaderText = "Trạng thái";
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel1);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1076, 70);
-            this.guna2Panel2.TabIndex = 36;
-            // 
-            // btnSua
-            // 
-            this.btnSua.AutoRoundedCorners = true;
-            this.btnSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(110)))), ((int)(((byte)(210)))));
-            this.btnSua.BorderRadius = 21;
-            this.btnSua.BorderThickness = 2;
-            this.btnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSua.FillColor = System.Drawing.Color.Transparent;
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(110)))), ((int)(((byte)(210)))));
-            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSua.Location = new System.Drawing.Point(914, 713);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(120, 45);
-            this.btnSua.TabIndex = 37;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // FrmCanHo
             // 
@@ -353,6 +364,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSearchID;
         private Guna.UI2.WinForms.Guna2Button btnSua;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Check;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdChuHo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ChuHo;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoPhong;

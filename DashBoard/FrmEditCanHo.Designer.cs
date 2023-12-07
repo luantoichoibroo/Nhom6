@@ -43,11 +43,11 @@
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtDienTich = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtChuHo = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtTenPhong = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbbChuHo = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -292,29 +292,6 @@
             this.guna2HtmlLabel3.TabIndex = 28;
             this.guna2HtmlLabel3.Text = "Chủ hộ";
             // 
-            // txtChuHo
-            // 
-            this.txtChuHo.BorderColor = System.Drawing.Color.DimGray;
-            this.txtChuHo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtChuHo.DefaultText = "";
-            this.txtChuHo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtChuHo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtChuHo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtChuHo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtChuHo.FillColor = System.Drawing.Color.DimGray;
-            this.txtChuHo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtChuHo.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChuHo.ForeColor = System.Drawing.Color.White;
-            this.txtChuHo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtChuHo.Location = new System.Drawing.Point(404, 248);
-            this.txtChuHo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtChuHo.Name = "txtChuHo";
-            this.txtChuHo.PasswordChar = '\0';
-            this.txtChuHo.PlaceholderText = "";
-            this.txtChuHo.SelectedText = "";
-            this.txtChuHo.Size = new System.Drawing.Size(312, 48);
-            this.txtChuHo.TabIndex = 24;
-            // 
             // guna2HtmlLabel2
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
@@ -369,11 +346,32 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1140, 14);
             this.guna2Panel1.TabIndex = 35;
             // 
+            // cbbChuHo
+            // 
+            this.cbbChuHo.BackColor = System.Drawing.Color.Transparent;
+            this.cbbChuHo.BorderColor = System.Drawing.Color.DimGray;
+            this.cbbChuHo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbChuHo.DropDownHeight = 100;
+            this.cbbChuHo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbChuHo.FillColor = System.Drawing.Color.DimGray;
+            this.cbbChuHo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbChuHo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbChuHo.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
+            this.cbbChuHo.ForeColor = System.Drawing.Color.White;
+            this.cbbChuHo.IntegralHeight = false;
+            this.cbbChuHo.ItemHeight = 30;
+            this.cbbChuHo.Location = new System.Drawing.Point(404, 260);
+            this.cbbChuHo.Name = "cbbChuHo";
+            this.cbbChuHo.Size = new System.Drawing.Size(312, 36);
+            this.cbbChuHo.StartIndex = 0;
+            this.cbbChuHo.TabIndex = 40;
+            // 
             // FrmEditCanHo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(1140, 586);
+            this.Controls.Add(this.cbbChuHo);
             this.Controls.Add(this.cbbToaNha);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnSave);
@@ -388,7 +386,6 @@
             this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.txtDienTich);
             this.Controls.Add(this.guna2HtmlLabel3);
-            this.Controls.Add(this.txtChuHo);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.txtTenPhong);
             this.Controls.Add(this.guna2HtmlLabel1);
@@ -397,6 +394,7 @@
             this.Name = "FrmEditCanHo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditCanHo";
+            this.Load += new System.EventHandler(this.FrmEditCanHo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -419,10 +417,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2TextBox txtDienTich;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2TextBox txtChuHo;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2TextBox txtTenPhong;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbChuHo;
     }
 }

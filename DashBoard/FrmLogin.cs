@@ -30,7 +30,7 @@ namespace DashBoard
             file.Close();
             if (txtUsername.Text == account.UserName && txtPassWord.Text == account.PassWord)
             {
-                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Welcome", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 Form1 form = new Form1();
                 form.ShowDialog();

@@ -19,14 +19,14 @@ namespace DashBoard
             this.XuLyDuLieu = xuLyDuLieu;
         }
 
-        public void getCuDan(string ID, string FullName, string queQuan, string CCCD, string phoneNumber, bool gioiTinh, DateTime ngaysinh)
+        public void getCuDan(string ID, string FullName, string queQuan, string CCCD, string phoneNumber, string gioiTinh, DateTime ngaysinh)
         {
             txtID.Text = ID;
             txtHoTen.Text = FullName;
             cbbQueQuan.Text = queQuan;
             txtCCCD.Text = CCCD;
             txtSĐT.Text = phoneNumber;
-            if (gioiTinh)
+            if (gioiTinh == "Nam")
             {
                 rdbNam.Checked = true;
             }
@@ -47,11 +47,11 @@ namespace DashBoard
             cuDan.NgaySinh = new DateTime(dtpNgaySinh.Value.Year, dtpNgaySinh.Value.Month, dtpNgaySinh.Value.Day);
             if (rdbNam.Checked)
             {
-                cuDan.GioiTinh = true;
+                cuDan.GioiTinh = "Nam";
             }
             else
             {
-                cuDan.GioiTinh = false;
+                cuDan.GioiTinh = "Nữ";
             }
             XuLyDuLieu.ghiFileCuDan();
             this.Hide();

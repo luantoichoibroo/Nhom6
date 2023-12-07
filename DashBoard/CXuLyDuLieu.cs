@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -9,22 +10,30 @@ using System.Windows.Forms;
 
 namespace DashBoard
 {
+    [Serializable]
     public class CXuLyDuLieu
     {
         private Dictionary<string, CCuDan> dsCD;
         private Dictionary<string, CCanHo> dsCH;
-        private Dictionary<string, CKhoanPhi> dsKP;
+        private List<CKhoanPhi> dsKP;
+        private List<CPhuongTien> dsPT;
 
         public CXuLyDuLieu()
         {
             dsCD = new Dictionary<string, CCuDan>();
             dsCH = new Dictionary<string, CCanHo>();
-            dsKP = new Dictionary<string, CKhoanPhi>();
+            dsPT = new List<CPhuongTien>();
+            dsKP = new List<CKhoanPhi>();
         }
 
         public List<CCuDan> getDSCuDan()
         {
             return dsCD.Values.ToList();
+        }
+
+        public Dictionary<string,CCuDan> idNameCuDan()
+        {
+            return dsCD;    
         }
 
         public List<CCanHo> getDsCanHo()
@@ -34,7 +43,12 @@ namespace DashBoard
 
         public List<CKhoanPhi> getDsKhoanPhi()
         {
-            return dsKP.Values.ToList();
+            return dsKP.ToList();
+        }
+
+        public List<CPhuongTien> getDsPhuongTien()
+        {
+            return dsPT.ToList();
         }
 
         public CCuDan searchCuDan(string ma)
@@ -49,6 +63,18 @@ namespace DashBoard
             }
         }
 
+        public CCuDan searchCuDanTheoTen(string ten)
+        {
+            foreach(CCuDan item in dsCD.Values)
+            {
+                if(item.FullName.ToLower() == ten.ToLower())
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
         public CCanHo searchCanHo(string ma)
         {
             try
@@ -61,16 +87,28 @@ namespace DashBoard
             }
         }
 
-        public CKhoanPhi searchKhoanPhi(string ma)
+        public CPhuongTien searchPhuongTien(string idCanHo)
         {
-            try
+            foreach(CPhuongTien item in dsPT)
             {
-                return dsKP[ma];
+                if(item.IdCanHo == idCanHo)
+                {
+                    return item;
+                }
             }
-            catch
+            return null;
+        }
+
+        public CKhoanPhi searchKhoanPhi(string idCanHo)
+        {
+            foreach (CKhoanPhi item in dsKP)
             {
-                return null;
+                if (item.IDCanHo == idCanHo)
+                {
+                    return item;
+                }
             }
+            return null;
         }
 
         public bool themCuDan(CCuDan cuDan)
@@ -103,6 +141,49 @@ namespace DashBoard
             catch
             {
                 return false;
+            }
+        }
+
+        public bool themKhoanPhi(CKhoanPhi khoanPhi)
+        {
+            try
+            {
+                if (khoanPhi == null)
+                {
+                    return false;
+                }
+                dsKP.Add(khoanPhi);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool themPhuongTien(CPhuongTien phuongTien)
+        {
+            if(phuongTien.IdCanHo == null)
+            {
+                return false;
+            }
+            else
+            {
+                dsPT.Add(phuongTien);
+                return true;
+            }
+        }
+
+        public bool xoaPhuongTien(CPhuongTien phuongTien)
+        {
+            if (phuongTien.IdCanHo == null)
+            {
+                return false;
+            }
+            else
+            {
+                dsPT.Remove(phuongTien);
+                return true;
             }
         }
 
@@ -160,6 +241,36 @@ namespace DashBoard
             }
         }
 
+        public void ghiFilePhuongTien()
+         {
+            try
+            {
+                FileStream file = new FileStream("DanhSachPhuongTien.dat", FileMode.Create);
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(file, dsPT);
+                file.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void ghiFileKhoanPhi()
+        {
+            try
+            {
+                FileStream file = new FileStream("DanhSachKhoanPhi.dat", FileMode.Create);
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(file, dsKP);
+                file.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public void docFileCuDan()
         {
             try
@@ -167,6 +278,7 @@ namespace DashBoard
                 FileStream file = new FileStream("DanhSachCuDan.dat", FileMode.Open);
                 BinaryFormatter binaryFormatter = new BinaryFormatter();
                 dsCD = binaryFormatter.Deserialize(file) as Dictionary<string, CCuDan>;
+                file.Close();
             }
             catch (Exception ex)
             {
@@ -181,11 +293,43 @@ namespace DashBoard
                 FileStream file = new FileStream("DanhSachCanHo.dat", FileMode.Open);
                 BinaryFormatter binaryFormatter = new BinaryFormatter();
                 dsCH = binaryFormatter.Deserialize(file) as Dictionary<string, CCanHo>;
+                file.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void docFilePhuongTien()
+        {
+            try
+            {
+                FileStream file = new FileStream("DanhSachPhuongTien.dat", FileMode.Open);
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                dsPT = binaryFormatter.Deserialize(file) as List<CPhuongTien>;
+                file.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void docFileKhoanPhi()
+        {
+            try
+            {
+                FileStream file = new FileStream("DanhSachKhoanPhi.dat", FileMode.Open);
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                dsKP = binaryFormatter.Deserialize(file) as List<CKhoanPhi>;
+                file.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

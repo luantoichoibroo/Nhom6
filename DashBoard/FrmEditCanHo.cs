@@ -23,7 +23,8 @@ namespace DashBoard
         {
             txtID.Text = m_id;
             txtTenPhong.Text = m_soPhong;
-            txtChuHo.Text = m_chuHo;
+            cbbChuHo.Items.Add(m_chuHo);
+            cbbChuHo.SelectedItem = m_chuHo;
             cbbToaNha.Text = m_toaNha;
             txtDienTich.Text = Convert.ToString(m_dienTich);
             if(m_trangThai == TrangThaiPhong.HoatDong)
@@ -41,7 +42,7 @@ namespace DashBoard
         {
             CCanHo canHo = XuLyDuLieu.searchCanHo(txtID.Text);
             canHo.SoPhong = txtTenPhong.Text;
-            canHo.ChuHo = txtChuHo.Text;
+            canHo.ChuHo = cbbChuHo.SelectedItem.ToString();
             canHo.ToaNha = cbbToaNha.SelectedItem.ToString();
             canHo.DienTich = Convert.ToDouble(txtDienTich.Text);
             if(cbbTrangThai.SelectedItem.ToString() =="Hoạt động")
@@ -60,6 +61,18 @@ namespace DashBoard
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmEditCanHo_Load(object sender, EventArgs e)
+        {
+            List<CCuDan> dsCuDan = XuLyDuLieu.getDSCuDan();
+            foreach (CCuDan item in dsCuDan)
+            {
+                if (item.FullName != cbbChuHo.SelectedItem.ToString())
+                {
+                    cbbChuHo.Items.Add(item.FullName);
+                }
+            }
         }
     }
 }

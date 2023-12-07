@@ -450,6 +450,7 @@
             this.txtID.Name = "txtID";
             this.txtID.PasswordChar = '\0';
             this.txtID.PlaceholderText = "";
+            this.txtID.ReadOnly = true;
             this.txtID.SelectedText = "";
             this.txtID.Size = new System.Drawing.Size(310, 37);
             this.txtID.TabIndex = 0;
@@ -507,7 +508,7 @@
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(310, 41);
             this.dtpNgaySinh.TabIndex = 35;
-            this.dtpNgaySinh.Value = new System.DateTime(2023, 11, 15, 0, 41, 2, 561);
+            this.dtpNgaySinh.Value = new System.DateTime(2023, 12, 6, 0, 0, 0, 0);
             // 
             // guna2PictureBox2
             // 
@@ -519,7 +520,7 @@
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(1063, 797);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 3;
+            this.guna2PictureBox2.TabIndex = 4;
             this.guna2PictureBox2.TabStop = false;
             // 
             // FrmAdd
@@ -533,6 +534,7 @@
             this.Name = "FrmAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAdd";
+            this.Load += new System.EventHandler(this.FrmAdd_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace DashBoard
 {
@@ -33,15 +34,15 @@ namespace DashBoard
                 cuDan.NgaySinh = new DateTime(dtpNgaySinh.Value.Year, dtpNgaySinh.Value.Month, dtpNgaySinh.Value.Day);
                 if (rdbNam.Checked)
                 {
-                    cuDan.GioiTinh = true;
+                    cuDan.GioiTinh = "Nam";
                 }
                 else
                 {
-                    cuDan.GioiTinh = false;
+                    cuDan.GioiTinh = "Nữ";
                 }
                 XuLyDuLieu.themCuDan(cuDan);
                 XuLyDuLieu.ghiFileCuDan();
-                this.Hide();
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -52,6 +53,11 @@ namespace DashBoard
         private void btnDontSave_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmAdd_Load(object sender, EventArgs e)
+        {
+            txtID.Text = Guid.NewGuid().ToString();
         }
     }
 }

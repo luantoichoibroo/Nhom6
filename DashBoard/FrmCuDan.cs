@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace DashBoard
 {
+    [Serializable]
     public partial class FrmCuDan : Form
     {
         private CXuLyDuLieu XuLyDuLieu;
@@ -51,6 +52,16 @@ namespace DashBoard
                     DialogResult result = MessageBox.Show("Bạn có muốn xóa cư dân đã được chọn", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
+                        List<CCanHo> dsCanHo = XuLyDuLieu.getDsCanHo();
+                        foreach(CCanHo canHo in dsCanHo)
+                        {
+                            if(canHo.IdChuHo == r.Cells["ID"].Value.ToString())
+                            {
+                                XuLyDuLieu.xoaCanHo(canHo.ID);
+                                XuLyDuLieu.ghiFileCanHo();
+                                break;
+                            }
+                        }
                         XuLyDuLieu.xoaCuDan(cuDan.ID);
                         XuLyDuLieu.ghiFileCuDan();
                         hienThi(XuLyDuLieu.getDSCuDan());
@@ -69,11 +80,16 @@ namespace DashBoard
             }
             else
             {
-                if (XuLyDuLieu.searchCuDan(txtSearchID.Text) != null)
+                if (XuLyDuLieu.searchCuDanTheoTen(txtSearchID.Text) != null)
                 {
-                    CCuDan cuDan = XuLyDuLieu.searchCuDan(txtSearchID.Text);
                     List<CCuDan> cuDans = new List<CCuDan>();
-                    cuDans.Add(cuDan);
+                    foreach(CCuDan cudan in XuLyDuLieu.getDSCuDan())
+                    {
+                        if(cudan.FullName.ToLower() == txtSearchID.Text.ToLower())
+                        {
+                            cuDans.Add(cudan);
+                        }
+                    }
                     dgvCuDan.DataSource = cuDans.ToList();
                 }
             }
@@ -93,7 +109,7 @@ namespace DashBoard
                     cuDan.QueQuan = row.Cells["QueQuan"].Value.ToString();
                     cuDan.PhoneNumber = row.Cells["PhoneNumber"].Value.ToString();
                     cuDan.CanCuocCongDan = row.Cells["CCCD"].Value.ToString();
-                    cuDan.GioiTinh = Convert.ToBoolean(row.Cells["GioiTinh"].Value.ToString());
+                    cuDan.GioiTinh = row.Cells["GioiTinh"].Value.ToString();
                     cuDan.NgaySinh = Convert.ToDateTime(row.Cells["NgaySinh"].Value.ToString());
                     frmEdit.getCuDan(cuDan.ID, cuDan.FullName, cuDan.QueQuan, cuDan.CanCuocCongDan, cuDan.PhoneNumber, cuDan.GioiTinh, cuDan.NgaySinh);
                     frmEdit.ShowDialog();

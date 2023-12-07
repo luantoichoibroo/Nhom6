@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DashBoard
 {
@@ -23,6 +24,12 @@ namespace DashBoard
         {
             lbCuDan.Text = XuLyDuLieu.getDSCuDan().Count.ToString();
             lbCanHo.Text = XuLyDuLieu.getDsCanHo().Count.ToString();
+            int soLuongPhuongTien = 0;
+            foreach(CPhuongTien item in XuLyDuLieu.getDsPhuongTien())
+            {
+                soLuongPhuongTien += item.SoLuongPhuongTien;
+            }
+            lbPhuongTien.Text = soLuongPhuongTien.ToString();
         }
     }
 }

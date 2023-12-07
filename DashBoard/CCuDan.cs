@@ -10,7 +10,7 @@ namespace DashBoard
     public class CCuDan
     {
         private string m_idCuDan, m_fullName, m_queqQuan, m_phoneNumber, m_CCCD;
-        private bool m_gioiTinh;
+        private string m_gioiTinh;
         private DateTime m_ngaysinh;
         public string ID
         {
@@ -42,7 +42,7 @@ namespace DashBoard
             set { m_CCCD = value; }
         }
 
-        public bool GioiTinh
+        public string GioiTinh
         {
             get { return m_gioiTinh; }
             set { m_gioiTinh = value; }
@@ -61,7 +61,7 @@ namespace DashBoard
             this.m_queqQuan = null;
             this.m_phoneNumber = null;
             this.m_CCCD = null;
-            this.m_gioiTinh = true;
+            this.m_gioiTinh = null; ;
             this.m_ngaysinh = DateTime.Now;
         }
     }

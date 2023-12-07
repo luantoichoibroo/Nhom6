@@ -60,12 +60,38 @@
     <Compile Include="CCanHo.cs" />
     <Compile Include="CCuDan.cs" />
     <Compile Include="CKhoanPhi.cs" />
+    <Compile Include="CPhuongTien.cs" />
+    <Compile Include="CTinhTien.cs" />
     <Compile Include="CXuLyDuLieu.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddKhoanPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddKhoanPhi.Designer.cs">
+      <DependentUpon>FormAddKhoanPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPhuongTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPhuongTien.Designer.cs">
+      <DependentUpon>FormAddPhuongTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThongTinPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThongTinPhi.Designer.cs">
+      <DependentUpon>FormThongTinPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTinhTienGuiXeThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTinhTienGuiXeThang.Designer.cs">
+      <DependentUpon>FormTinhTienGuiXeThang.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAdd.cs">
       <SubType>Form</SubType>
@@ -121,10 +147,28 @@
     <Compile Include="ListCuDan.Designer.cs">
       <DependentUpon>ListCuDan.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListPhuongTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListPhuongTien.Designer.cs">
+      <DependentUpon>ListPhuongTien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddKhoanPhi.resx">
+      <DependentUpon>FormAddKhoanPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPhuongTien.resx">
+      <DependentUpon>FormAddPhuongTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThongTinPhi.resx">
+      <DependentUpon>FormThongTinPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTinhTienGuiXeThang.resx">
+      <DependentUpon>FormTinhTienGuiXeThang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAdd.resx">
       <DependentUpon>FrmAdd.cs</DependentUpon>
@@ -152,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListCuDan.resx">
       <DependentUpon>ListCuDan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListPhuongTien.resx">
+      <DependentUpon>ListPhuongTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

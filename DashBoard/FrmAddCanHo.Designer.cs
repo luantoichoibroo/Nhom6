@@ -33,7 +33,6 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtTenPhong = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtChuHo = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtDienTich = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -48,6 +47,7 @@
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.cbbToaNha = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cbbChuHo = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +92,7 @@
             this.txtTenPhong.Name = "txtTenPhong";
             this.txtTenPhong.PasswordChar = '\0';
             this.txtTenPhong.PlaceholderText = "";
+            this.txtTenPhong.ReadOnly = true;
             this.txtTenPhong.SelectedText = "";
             this.txtTenPhong.Size = new System.Drawing.Size(312, 48);
             this.txtTenPhong.TabIndex = 1;
@@ -106,29 +107,6 @@
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(69, 30);
             this.guna2HtmlLabel3.TabIndex = 5;
             this.guna2HtmlLabel3.Text = "Chủ hộ";
-            // 
-            // txtChuHo
-            // 
-            this.txtChuHo.BorderColor = System.Drawing.Color.DimGray;
-            this.txtChuHo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtChuHo.DefaultText = "";
-            this.txtChuHo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtChuHo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtChuHo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtChuHo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtChuHo.FillColor = System.Drawing.Color.DimGray;
-            this.txtChuHo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtChuHo.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChuHo.ForeColor = System.Drawing.Color.White;
-            this.txtChuHo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtChuHo.Location = new System.Drawing.Point(404, 249);
-            this.txtChuHo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtChuHo.Name = "txtChuHo";
-            this.txtChuHo.PasswordChar = '\0';
-            this.txtChuHo.PlaceholderText = "";
-            this.txtChuHo.SelectedText = "";
-            this.txtChuHo.Size = new System.Drawing.Size(312, 48);
-            this.txtChuHo.TabIndex = 2;
             // 
             // guna2HtmlLabel4
             // 
@@ -208,6 +186,7 @@
             this.txtID.SelectedText = "";
             this.txtID.Size = new System.Drawing.Size(312, 48);
             this.txtID.TabIndex = 0;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // guna2HtmlLabel7
             // 
@@ -313,7 +292,7 @@
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.HoverState.FillColor = System.Drawing.Color.DimGray;
             this.btnSave.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(842, 529);
+            this.btnSave.Location = new System.Drawing.Point(847, 529);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(132, 45);
             this.btnSave.TabIndex = 18;
@@ -369,11 +348,31 @@
             this.cbbToaNha.TabIndex = 20;
             this.cbbToaNha.SelectedIndexChanged += new System.EventHandler(this.cbbToaNha_SelectedIndexChanged);
             // 
+            // cbbChuHo
+            // 
+            this.cbbChuHo.BackColor = System.Drawing.Color.Transparent;
+            this.cbbChuHo.BorderColor = System.Drawing.Color.DimGray;
+            this.cbbChuHo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbChuHo.DropDownHeight = 100;
+            this.cbbChuHo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbChuHo.FillColor = System.Drawing.Color.DimGray;
+            this.cbbChuHo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbChuHo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbChuHo.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
+            this.cbbChuHo.ForeColor = System.Drawing.Color.White;
+            this.cbbChuHo.IntegralHeight = false;
+            this.cbbChuHo.ItemHeight = 30;
+            this.cbbChuHo.Location = new System.Drawing.Point(404, 261);
+            this.cbbChuHo.Name = "cbbChuHo";
+            this.cbbChuHo.Size = new System.Drawing.Size(312, 36);
+            this.cbbChuHo.TabIndex = 21;
+            // 
             // FrmAddCanHo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(1140, 586);
+            this.Controls.Add(this.cbbChuHo);
             this.Controls.Add(this.cbbToaNha);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnSave);
@@ -388,7 +387,6 @@
             this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.txtDienTich);
             this.Controls.Add(this.guna2HtmlLabel3);
-            this.Controls.Add(this.txtChuHo);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.txtTenPhong);
             this.Controls.Add(this.guna2HtmlLabel1);
@@ -397,6 +395,7 @@
             this.Name = "FrmAddCanHo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAddCanHo";
+            this.Load += new System.EventHandler(this.FrmAddCanHo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -408,7 +407,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2TextBox txtTenPhong;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2TextBox txtChuHo;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2TextBox txtDienTich;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
@@ -423,5 +421,6 @@
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2ComboBox cbbToaNha;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbChuHo;
     }
 }

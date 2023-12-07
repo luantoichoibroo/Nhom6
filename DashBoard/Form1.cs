@@ -54,23 +54,22 @@ namespace DashBoard
         private void Form1_Load(object sender, EventArgs e)
         {
             XuLyDuLieu = new CXuLyDuLieu();   
-            showListCuDan(new ListCuDan(XuLyDuLieu));
             CAccount account = new CAccount();
             FileStream file = new FileStream("Account.dat", FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
             account = bf.Deserialize(file) as CAccount;
             file.Close();
             lbWelcome.Text =  "Welcome " + account.UserName;
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
+            XuLyDuLieu.docFileCanHo();
+            XuLyDuLieu.docFileCuDan();
+            XuLyDuLieu.docFileKhoanPhi();
+            XuLyDuLieu.docFilePhuongTien();
+            showListCuDan(new ListCuDan(XuLyDuLieu));
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            showListCuDan(new FrmKhoanPhi());
+            showListCuDan(new FrmKhoanPhi(XuLyDuLieu));
         }
 
         private void guna2Button6_Click(object sender, EventArgs e)
@@ -80,6 +79,25 @@ namespace DashBoard
             login.ShowDialog();
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+        }
 
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            showListCuDan(new ListPhuongTien(XuLyDuLieu));
+        }
     }
 }
