@@ -49,7 +49,7 @@ namespace DashBoard
                 if (ischecked)
                 {
                     CCuDan cuDan = XuLyDuLieu.searchCuDan(r.Cells["ID"].Value.ToString());
-                    DialogResult result = MessageBox.Show("Bạn có muốn xóa cư dân đã được chọn", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show("Bạn có muốn xóa cư dân đã được chọn không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         List<CCanHo> dsCanHo = XuLyDuLieu.getDsCanHo();

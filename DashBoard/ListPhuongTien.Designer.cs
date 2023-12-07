@@ -87,6 +87,7 @@
             this.txtSearchID.SelectedText = "";
             this.txtSearchID.Size = new System.Drawing.Size(225, 36);
             this.txtSearchID.TabIndex = 25;
+            this.txtSearchID.TextChanged += new System.EventHandler(this.txtSearchID_TextChanged);
             // 
             // btnThem
             // 
@@ -160,7 +161,7 @@
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSua.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnSua.Location = new System.Drawing.Point(914, 714);
+            this.btnSua.Location = new System.Drawing.Point(944, 704);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(120, 45);
             this.btnSua.TabIndex = 42;
@@ -182,11 +183,12 @@
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXoa.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnXoa.Location = new System.Drawing.Point(764, 714);
+            this.btnXoa.Location = new System.Drawing.Point(799, 704);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(120, 45);
             this.btnXoa.TabIndex = 40;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // dgvPhuongTien
             // 

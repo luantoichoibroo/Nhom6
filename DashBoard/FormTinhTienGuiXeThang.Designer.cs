@@ -51,6 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(320, 9);
             this.label1.Name = "label1";
@@ -90,6 +91,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Bisque;
             this.groupBox1.Controls.Add(this.lbTongTien);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(453, 330);
@@ -170,6 +172,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Linen;
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.lbXeDap);
             this.groupBox2.Controls.Add(this.label7);
@@ -187,6 +190,7 @@
             // lbID
             // 
             this.lbID.AutoSize = true;
+            this.lbID.BackColor = System.Drawing.Color.White;
             this.lbID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbID.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbID.Location = new System.Drawing.Point(505, 9);
@@ -221,7 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
+            this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(901, 485);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.lbID);

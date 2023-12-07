@@ -121,13 +121,17 @@ namespace DashBoard
         {
             get
             {
-                if(DateTime.Now > m_thoiHanDong || this.TienNo > 0)
+                if (this.TienNo > 0)
                 {
-                    return " Chưa đóng ";
+                    return "Chưa đóng";
+                }
+                else if (DateTime.Now > m_thoiHanDong)
+                {
+                    return "Đã đóng, nhưng quá hạn";
                 }
                 else
                 {
-                    return " Đã đóng "; 
+                    return "Đã đóng";
                 }
             }
         }

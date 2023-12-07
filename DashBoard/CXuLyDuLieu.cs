@@ -211,6 +211,20 @@ namespace DashBoard
             }
         }
 
+        public bool xoaKhoanPhi(CKhoanPhi khoanPhi)
+        {
+            if (khoanPhi.IDCanHo == null)
+            {
+                return false;
+            }
+            else
+            {
+                dsKP.Remove(khoanPhi);
+                return true;
+            }
+        }
+
+
         public void ghiFileCuDan()
         {
             try

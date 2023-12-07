@@ -22,7 +22,6 @@ namespace DashBoard
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //dung bien toan cuc
             CAccount account = new CAccount();
             FileStream file = new FileStream("Account.dat", FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
@@ -30,7 +29,6 @@ namespace DashBoard
             file.Close();
             if (txtUsername.Text == account.UserName && txtPassWord.Text == account.PassWord)
             {
-                MessageBox.Show("Welcome", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 Form1 form = new Form1();
                 form.ShowDialog();
@@ -66,6 +64,28 @@ namespace DashBoard
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                CAccount account = new CAccount();
+                FileStream file = new FileStream("Account.dat", FileMode.Open);
+                BinaryFormatter bf = new BinaryFormatter();
+                account = bf.Deserialize(file) as CAccount;
+                file.Close();
+                if (txtUsername.Text == account.UserName && txtPassWord.Text == account.PassWord)
+                {
+                    this.Hide();
+                    Form1 form = new Form1();
+                    form.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
